@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>FlexBox - Test</title>  
+<style type="text/css">
+    .BRL{
+        border: 1px solid red;
+    }
+    
+    main { display: flex; }
+    main > article { order: 2; min-width: 12em; flex:1; }
+    main > nav     { order: 1; width: 200px; }
+    main > aside   { order: 3; width: 200px; }
+    
+    @media all and (max-width: 600px) {
+        /* Too narrow to support three columns */
+        main { flex-flow: column; }
+        main > article, main > nav, main > aside {
+        /* Return them to document order */
+        order: 0; width: auto;
+        }
+    }
+    
+</style>
+</head>
+<body>
+    <header class="BRL"> header </header>
+    <main class="BRL">
+        <article class="BRL">article</article>
+        <nav class="BRL">nav</nav>
+        <aside class="BRL">aside</aside>
+    </main>
+    <footer class="BRL">footer</footer>
+</body>
+</html>
